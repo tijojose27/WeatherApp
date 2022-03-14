@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface WeatherAPI {
     companion object{
-        const val APPID = "f2259ea9d6e1e64fef69d6fd66bd0984"
+        const val APPID = "cf002751564a4c78f5f7ed479f1b9ba3"
         const val UNITS = "imperial"
     }
 
@@ -18,8 +18,6 @@ interface WeatherAPI {
         @Query("appid") appId: String = APPID,
         @Query("units") units: String = UNITS
     ): Response<WeatherModel>
-
-
 
     @GET("weather")
     suspend fun getWeatherForCity(

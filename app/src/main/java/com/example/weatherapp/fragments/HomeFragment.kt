@@ -1,9 +1,11 @@
 package com.example.weatherapp.fragments
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentHomeBinding
 import com.example.weatherapp.helper.WeatherHelpers
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.*
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
 
@@ -90,7 +91,7 @@ class HomeFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             fusedLocationClient.lastLocation.addOnCompleteListener { task ->
                 val location: Location? = task.result
                 if (location == null) {
-                    Toast.makeText(requireContext(), "Cannot get Location", Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), "Cannot get Location, Make Location Permission is Granted", Toast.LENGTH_SHORT)
                         .show()
                 } else {
                     WeatherHelpers.updateLatLong(location.latitude, location.longitude)
@@ -130,6 +131,7 @@ class HomeFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
         Toast.makeText(requireContext(), "Permission Granted", Toast.LENGTH_SHORT).show()
+        getLatLon()
     }
 
 }
