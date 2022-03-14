@@ -1,46 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="248dp"
+        android:id="@+id/ziptextInputLayout"
+        android:layout_width="0dp"
         android:layout_height="61dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:boxStrokeWidth="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/city_zip_btn"
-        app:layout_constraintEnd_toStartOf="@+id/city_zip_btn"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/loc_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/city_zip_btn">
+        app:layout_constraintTop_toBottomOf="@+id/citytextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/zipTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Zip Code or City"/>
+            android:inputType="number"
+            android:hint="@string/enter_zip_code" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/city_zip_btn"
+        android:id="@+id/zip_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
         app:cornerRadius="10dp"
         app:icon="@drawable/arrow_forward"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/loc_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/ziptextInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/ziptextInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/ziptextInputLayout" />
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/citytextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/ziptextInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cityTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="@string/enter_city" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/city_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/arrow_forward"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/citytextInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/citytextInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/citytextInputLayout" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loc_btn"
@@ -49,12 +96,13 @@
         android:padding="8dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:text="Get location"
+        android:text="@string/get_location"
         app:cornerRadius="10dp"
         app:icon="@drawable/ic_baseline_gps_fixed_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city_zip_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/ziptextInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

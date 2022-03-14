@@ -3,5 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello 1 fragment</string>
     <string name="hello_second_fragment">Hello 2 fragment</string>
+    <string name="enter_zip_code">Enter Zip Code</string>
+    <string name="enter_city">Enter City</string>
+    <string name="get_location">Get location</string>
 
 </resources>
