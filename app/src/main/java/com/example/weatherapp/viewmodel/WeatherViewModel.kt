@@ -11,12 +11,14 @@ import com.example.weatherapp.networking.RetrofitInstance
 import com.google.gson.JsonParser
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import kotlin.math.roundToInt
 
 class WeatherViewModel : ViewModel() {
 
     var cityLiveData = MutableLiveData("---------")
     var tempLiveData = MutableLiveData("-.-\u2109")
     var descLiveData = MutableLiveData("--------")
+    var weatherIconData = MutableLiveData("")
 
 
     var errorLiveData = MutableLiveData(false)
@@ -141,10 +143,13 @@ class WeatherViewModel : ViewModel() {
 
     fun getCityAndTemp(response: Response<WeatherModel>) {
         val city = response.body()!!.name
-        val temp = response.body()!!.main.temp.toString() + "\u2109"
+        val rawTemp = (response.body()!!.main.temp).roundToInt()
+        val temp = "$rawTemp\u2109"
         val desc = response.body()!!.weather[0].description
+        val icon = response.body()!!.weather[0].icon
         cityLiveData.value = city
         tempLiveData.value = temp
         descLiveData.value = desc
+        weatherIconData.value = icon
     }
 }

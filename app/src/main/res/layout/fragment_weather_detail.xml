@@ -14,23 +14,23 @@
     </data>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/detailColor">
 
         <TextView
             android:id="@+id/curr_city"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:elevation="15dp"
             android:gravity="center"
             android:text="@{viewModel.cityLiveData}"
-            android:textSize="50sp"
-            android:textStyle="bold"
+            android:textColor="@color/dashboardColor"
+            style="@style/TextAppearance.AppCompat.Display2"
+            android:fontFamily="@font/bai_jamjuree"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,71 +38,49 @@
             android:visibility="@{!viewModel.errorLiveData}"
             tools:text="Houston" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:minHeight="150dp"
-            app:cardBackgroundColor="#B025F1"
-            app:cardCornerRadius="26dp"
-            app:cardUseCompatPadding="true"
-            android:visibility="@{!viewModel.errorLiveData}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/curr_city">
+            android:text="Today"
+            android:fontFamily="@font/bai_jamjuree"
+            android:textColor="@color/dashboardColor"
+            android:gravity="center"
+            style="@style/TextAppearance.AppCompat.Display1" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/desc"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="@android:color/white"
-                    android:gravity="center"
-                    android:text="@{viewModel.descLiveData}"
-                    tools:text="Massive Thundersorms"/>
-
-                <TextView
-                    android:id="@+id/curr_temp"
-                    android:textStyle="bold"
-                    android:textSize="40sp"
-                    android:textColor="@android:color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@{viewModel.tempLiveData}"
-                    tools:text="100 \u2109 " />
-
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/curr_temp"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.AppCompat.Display1"
+            android:gravity="center"
+            android:text="@{viewModel.tempLiveData}"
+            android:fontFamily="@font/bai_jamjuree"
+            android:layout_marginTop="30dp"
+            tools:text="100 \u2109 "
+            style="@style/TextAppearance.AppCompat.Display3"/>
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@android:color/holo_red_dark"
-            android:text="@{viewModel.errorMessage}"
-            android:visibility="@{viewModel.errorLiveData}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/bai_jamjuree"
+            android:gravity="center"
+            android:text="@{viewModel.descLiveData}"
+            tools:text="Massive Thundersorms"/>
+
+        <ImageView
+            android:id="@+id/today_weather_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/weather_dashbard"
+            android:layout_margin="20dp"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 </layout>

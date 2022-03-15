@@ -2,21 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/dashboardColor">
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ziptextInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="61dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintBottom_toTopOf="@+id/loc_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -27,8 +27,8 @@
             android:id="@+id/zipTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="@string/enter_zip_code" />
+            android:hint="@string/enter_zip_code"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -41,6 +41,8 @@
         android:paddingEnd="4dp"
         app:cornerRadius="10dp"
         app:icon="@drawable/arrow_forward"
+
+        android:backgroundTint="@color/buttonColor"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="@+id/ziptextInputLayout"
@@ -52,26 +54,25 @@
         android:id="@+id/citytextInputLayout"
         android:layout_width="0dp"
         android:layout_height="61dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintBottom_toTopOf="@+id/ziptextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/cityTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="@string/enter_city" />
+            android:hint="@string/enter_city"
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -84,6 +85,7 @@
         app:cornerRadius="10dp"
         app:icon="@drawable/arrow_forward"
         app:iconGravity="textStart"
+        android:backgroundTint="@color/buttonColor"
         app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="@+id/citytextInputLayout"
         app:layout_constraintStart_toStartOf="@+id/citytextInputLayout"
@@ -97,6 +99,8 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:text="@string/get_location"
+
+        android:backgroundTint="@color/buttonColor"
         app:cornerRadius="10dp"
         app:icon="@drawable/ic_baseline_gps_fixed_24"
         app:layout_constraintBottom_toBottomOf="parent"
